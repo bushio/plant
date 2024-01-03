@@ -55,7 +55,6 @@ def main(cfg):
         project=cfg.exp_folder_name,
         name=cfg.wandb_name,
         config=OmegaConf.to_container(cfg, resolve=True, throw_on_missing=True),
-        entity="seqdrive",
     )
     Path(f"{cfg.model.training.ckpt_path}/TBLogger").mkdir(parents=True, exist_ok=True)
     TBlogger = TensorBoardLogger(cfg.model.training.ckpt_path, name="TBLogger")
